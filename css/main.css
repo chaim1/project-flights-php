@@ -1,0 +1,16 @@
+nav a:hover{
+
+    background-color: grey  !important;
+
+
+  }
+  .img{
+      width: 100px;
+      height: 60px;
+  }
+h1{
+color: black;
+}
+/* body{
+    border: 1px solid black;
+} */
