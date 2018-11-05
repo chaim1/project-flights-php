@@ -22,13 +22,13 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo ROOT_VIRTUAL_DIR ?>/app/views/show-flights-view.php">All-flights <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../../app/views/show-flights-view.php">All-flights <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo ROOT_VIRTUAL_DIR ?>/app/views/show-pilot-view.php">All-Pilots <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../../app/views/show-pilot-view.php">All-Pilots <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo ROOT_VIRTUAL_DIR ?>/app/views/add-country-view.php">Add-Country <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../../app/views/add-country-view.php">Add-Country <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="../../app/views/add-airport-view.php">Add-Airport <span class="sr-only">(current)</span></a>

@@ -1,10 +1,11 @@
 <?php
+include 'header.php'; 
 include_once '../../Logic/business-logic-flight.php';
 $bl = new BusinessLogicFlight;
 $arrayOfFlight = $bl->get();
 ?>
 <?php     
-    include 'header.php'; 
+    
 ?>
 
     <main>
