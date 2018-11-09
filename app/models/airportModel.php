@@ -8,6 +8,7 @@ include_once '../../Logic/business-logic-country.php';
         private $id;        
         private $name;     
         private $contry_id;    
+        private $countryModel;
 
         function __construct($arr) {
 
@@ -31,6 +32,14 @@ include_once '../../Logic/business-logic-country.php';
 
         function getContryId() {
             return $this->contry_id;
+        }
+        function getCountryModel() {
+            if (empty($this->countryModel)) {
+                $pbl = new BusinessLogicCountry ();
+                $this->countryModel = $pbl->getOne($this->contry_id);    
+                
+            }
+            return $this->countryModel;
         }
         
     }

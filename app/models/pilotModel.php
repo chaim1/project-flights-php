@@ -19,7 +19,9 @@ include_once 'model.php';
 
                 $this->level = $arr['level'];
 
+                if(!empty($arr['picture_src'])){
                 $this->picture_src = $arr['picture_src'];
+                }
             
         }
 

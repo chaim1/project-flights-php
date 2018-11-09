@@ -55,6 +55,45 @@ include_once '../../app/models/flightModel.php' ;
         );
         $this->getDal()->update($query,$params);
     }
+    public function getSearch($search){
+ 
+        $query = "SELECT * FROM `flight` WHERE ((`no` LIKE '%$search%') OR (`flight_datetime` LIKE '%$search%'))";
+        // $params = array(
+        //     "con" => $search
+        // );
+        $results = $this->getDal()->selectWhere($query);
+
+        $resultsArray = [];
+
+        while ($row = $results->fetch()) {
+            array_push($resultsArray, new flightModel($row));
+        }
+        
+        return $resultsArray;
+
+
+    }
+    public function getFilter($Filter,$no,$datetime,$pilot,$from,$to){
+
+        $query = "SELECT * FROM `flight` WHERE `pilot_id` ='$pilot' AND `flight_from` ='$from' AND`flight_to` ='$to' AND `no` LIKE '%$no%' AND `flight_datetime`
+        LIKE '%$datetime%'";
+        // $params = array(
+        //     "pi" => $Filter->getPilotId(),
+        //     "ff" => $Filter->getFlightFrom(),
+        //     "ft" => $Filter->getFlightTo()
+        // );
+        $results = $this->getDal()->selectWhere($query);
+
+        $resultsArray = [];
+
+        while ($row = $results->fetch()) {
+            array_push($resultsArray, new flightModel($row));
+        }
+        
+        return $resultsArray;
+
+
+    }
 }
 
  

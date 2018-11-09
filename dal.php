@@ -36,7 +36,16 @@ final class DataAccessLayer
 
         return $stmt;
     }
+    public function selectWhere($query , $params = null)
+    {
+ 
+        $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
+        $stmt = $pdo->query($query);
+        $stmt ->execute($params);
+        return $stmt;
+    }
     public function selectOne($query, $params) {
+        
         $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
         $statement = $pdo->prepare($query);
         $statement->execute($params);

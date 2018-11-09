@@ -48,18 +48,51 @@ include_once '../../app/models/pilotModel.php' ;
         $this->getDal()->delete($query);
     }
 
-    public function update($id)
+    public function update($param)
     {
-        
+        $query = "UPDATE `pilot` SET `name`=:np, `level`=:lp WHERE `id`=:id";
         $params = array(
-
-            "id" => $id->getId(),
-            "np" => $id->getNmaepilot(),
-            "lp" => $id->getLevel(),
-            "psp" => $id->getLevel()
-
+            "id" => $param->getId(),
+            "np" => $param->getNmaepilot(),
+            "lp" => $param->getLevel(),
         );
         $this->getDal()->update($query,$params);
+    }
+
+    public function getFilter($Filter,$name,$level){
+
+        $query = "SELECT * FROM `pilot` WHERE  `name` LIKE  '%$name%' AND `level`  LIKE  '%$level%'";
+        // $params = array(
+        //     "ff" => $Filter->getFlightFrom(),
+        //     "ft" => $Filter->getFlightTo()
+        // );
+        $results = $this->getDal()->selectWhere($query);
+
+        $resultsArray = [];
+
+        while ($row = $results->fetch()) {
+            array_push($resultsArray, new pilotModel($row));
+        }
+        
+        return $resultsArray;
+    }
+    public function getSearch($search){
+ 
+        $query = "SELECT * FROM `pilot` WHERE ((`name` LIKE '%$search%') OR (`level` LIKE '%$search%'))";
+        // $params = array(
+        //     "con" => $search
+        // );
+        $results = $this->getDal()->selectWhere($query);
+
+        $resultsArray = [];
+
+        while ($row = $results->fetch()) {
+            array_push($resultsArray, new pilotModel($row));
+        }
+        
+        return $resultsArray;
+
+
     }
 }
 

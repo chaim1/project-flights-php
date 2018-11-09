@@ -7,6 +7,32 @@
 
     <main>
         <div style="border: 1px solid black; padding:5%; margin:5%">
+
+<!-- if has errors  -->
+            <?php if ($hasErrors) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+
+                        <?php foreach ($arreyOfErrors as $error) { ?>
+                        <li><strong><?php echo $error; ?></strong> </li>
+                        <?php } ?>
+
+                    </ul>
+                </div>
+                <?php } ?>
+            <!--  for successful -->
+                <?php if ($successful) { ?>
+                <div class="alert alert-success" role="alert">
+                    <ul>
+
+                        <?php foreach ($arreyOfSuccess as $successful) { ?>
+                        <li><strong></strong> <?php echo $successful; ?></li>
+                        <?php } ?>
+
+                    </ul>
+                </div>
+            <?php } ?>
+
             <h1 style="" align="center">Add Flight</h1>
             <form action="../controlers/add-flight-control.php" method="GET">
                 <div class="form-group">From 
@@ -44,7 +70,7 @@
                 </div>  
 
                 <div>        
-                    <button  type="submit" class="btn btn-secondary btn-lg btn-block">Add flight</button>
+                    <button name="AddFlight"  type="submit" class="btn btn-secondary btn-lg btn-block">Add flight</button>
                 </div>             
             </form>
         </div>
